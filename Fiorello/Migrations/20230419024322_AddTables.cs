@@ -146,6 +146,20 @@ namespace Fiorello.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SocialMedias",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SoftDelete = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SocialMedias", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Subscribes",
                 columns: table => new
                 {
@@ -334,7 +348,8 @@ namespace Fiorello.Migrations
                 {
                     { 1, "Header Logo", false, "logo.png" },
                     { 2, "Phone", false, "994501248723" },
-                    { 3, "Email", false, "CodeAcademy@gmail.az" }
+                    { 3, "Email", false, "CodeAcademy@gmail.az" },
+                    { 4, "Payment", false, "footer-bottom-1.png" }
                 });
 
             migrationBuilder.InsertData(
@@ -350,6 +365,15 @@ namespace Fiorello.Migrations
                     { 1, "h3-slider-background.jpg", false },
                     { 2, "h3-slider-background-2.jpg", false },
                     { 3, "h3-slider-background-3.jpg", false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "SocialMedias",
+                columns: new[] { "Id", "Name", "SoftDelete" },
+                values: new object[,]
+                {
+                    { 1, "LINKEDIN", false },
+                    { 2, "FACEBOOK", false }
                 });
 
             migrationBuilder.InsertData(
@@ -486,6 +510,9 @@ namespace Fiorello.Migrations
 
             migrationBuilder.DropTable(
                 name: "Sliders");
+
+            migrationBuilder.DropTable(
+                name: "SocialMedias");
 
             migrationBuilder.DropTable(
                 name: "Subscribes");

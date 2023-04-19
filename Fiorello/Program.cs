@@ -15,6 +15,8 @@ builder.Services.AddScoped<ILayoutService, LayoutService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IBlogService, BlogService>();
+builder.Services.AddScoped<ISliderService, SliderService>();
+builder.Services.AddScoped<IExpertService, ExpertService>();
 
 var app = builder.Build();
 

@@ -1,9 +1,11 @@
 ﻿using System;
+using Fiorello.Models;
+
 namespace Fiorello.ViewModels
 {
-	public class LayoutVM
+	public class HeaderVM
 	{
 		public Dictionary<string, string> Settings { get; set; }
 		public int CartCount { get; set; }
-	}
+    }
 }

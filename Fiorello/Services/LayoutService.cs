@@ -1,7 +1,9 @@
 ﻿using System;
 using Fiorello.Data;
+using Fiorello.Models;
 using Fiorello.Services.Interfaces;
 using Fiorello.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace Fiorello.Services
@@ -18,15 +20,24 @@ namespace Fiorello.Services
             _cartService = cartService;
         }
 
+        
 
-
-        public LayoutVM GetSettingDatas()
+        public HeaderVM GetHeaderDatas()
         {
             Dictionary<string, string> settings = _context.Settings.AsEnumerable().ToDictionary(s => s.Key, s => s.Value);
 
             List<CartVM> cartDatas = _cartService.GetCartDatas();
 
-            return new LayoutVM { Settings = settings, CartCount = cartDatas.Sum(p => p.Count) };
+            return new HeaderVM { Settings = settings, CartCount = cartDatas.Sum(p => p.Count) };
+        }
+
+        public async Task<FooterVM> GetFooterDatas()
+        {
+            Dictionary<string, string> settings = _context.Settings.AsEnumerable().ToDictionary(s => s.Key, s => s.Value);
+
+            IEnumerable<SocialMedia> socialMedias = await _context.SocialMedias.ToListAsync();
+
+            return new FooterVM { Settings = settings, SocialMedias = socialMedias };
         }
     }
 }

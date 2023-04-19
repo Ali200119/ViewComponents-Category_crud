@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fiorello.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230418005545_AddTables")]
+    [Migration("20230419024322_AddTables")]
     partial class AddTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -871,6 +871,13 @@ namespace Fiorello.Migrations
                             Key = "Email",
                             SoftDelete = false,
                             Value = "CodeAcademy@gmail.az"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Key = "Payment",
+                            SoftDelete = false,
+                            Value = "footer-bottom-1.png"
                         });
                 });
 
@@ -949,6 +956,40 @@ namespace Fiorello.Migrations
                             SignatureImage = "h2-sign-img.png",
                             SoftDelete = false,
                             Title = "<h1>Send <span>flowers</span> like</h1><h1>you mean it</h1>"
+                        });
+                });
+
+            modelBuilder.Entity("Fiorello.Models.SocialMedia", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("SoftDelete")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SocialMedias");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "LINKEDIN",
+                            SoftDelete = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "FACEBOOK",
+                            SoftDelete = false
                         });
                 });
 

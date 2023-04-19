@@ -8,29 +8,7 @@
 
     <!-- SLIDER START -->
 
-    <section id="slider">
-        <div class="owl-carousel slider">
-            @foreach (var slide in Model.Sliders)
-            {
-                <div> <img src="~/img/@slide.Image" alt=""> </div>
-            }
-        </div>
-        <div class="container context pl-lg-5 ml-lg-3">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="text">
-                        @Html.Raw(Model.SliderInfo.Title)
-                        <p class="text-black-50 d-none d-sm-block">
-                            @Model.SliderInfo.Description
-                        </p>
-                    </div>
-                    <div class="img">
-                        <img src="~/img/@Model.SliderInfo.SignatureImage" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    @await Component.InvokeAsync("Slider")
 
     <!-- SLIDER END -->
     <!-- PRODUCTS START -->
@@ -130,41 +108,7 @@
     <!-- ABOUT END -->
     <!-- EXPERTS START -->
 
-    <section id="experts">
-        <div class="container">
-            <div class="row py-5">
-                <div class="offset-lg-3 col-lg-6">
-                    <div class="section-title">
-                        <h1>@Model.Expert.Title</h1>
-                        <p class="text-black-50">
-                            @Model.Expert.Description
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row pb-5">
-                @foreach (var person in Model.Expert.Persons)
-                {
-                    <div class="col-md-6 col-lg-3">
-                        <div class="item text-center">
-                            <div class="img">
-                                <img src="~/img/@person.Image" class="img-fluid rounded-circle" alt="">
-                            </div>
-                            <div class="text mt-3">
-                                <h6>@person.Name</h6>
-                                <p class="text-black-50">@person.Position</p>
-                            </div>
-                        </div>
-                    </div>
-
-                }
-                <div class="col-lg-3"></div>
-                <div class="col-lg-3"></div>
-                <div class="col-lg-3"></div>
-
-            </div>
-        </div>
-    </section>
+    @await Component.InvokeAsync("Expert")
 
     <!-- EXPERTS END -->
     <!-- SUBSCRIBE START -->

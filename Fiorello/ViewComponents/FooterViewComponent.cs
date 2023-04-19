@@ -1,15 +1,14 @@
 ﻿using System;
 using Fiorello.Services.Interfaces;
-using Fiorello.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fiorello.ViewComponents
 {
-	public class HeaderViewComponent: ViewComponent
+	public class FooterViewComponent: ViewComponent
 	{
 		private readonly ILayoutService _layoutService;
 
-        public HeaderViewComponent(ILayoutService layoutService)
+        public FooterViewComponent(ILayoutService layoutService)
         {
             _layoutService = layoutService;
         }
@@ -18,7 +17,7 @@ namespace Fiorello.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
 		{
-			return await Task.FromResult(View(new HeaderVM { Settings = _layoutService.GetHeaderDatas().Settings, CartCount = _layoutService.GetHeaderDatas().CartCount}));
+			return await Task.FromResult(View(await _layoutService.GetFooterDatas()));
 		}
 	}
 }

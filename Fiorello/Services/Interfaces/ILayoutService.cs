@@ -5,6 +5,7 @@ namespace Fiorello.Services.Interfaces
 {
 	public interface ILayoutService
 	{
-        LayoutVM GetSettingDatas();
+        HeaderVM GetHeaderDatas();
+        Task<FooterVM> GetFooterDatas();
     }
 }

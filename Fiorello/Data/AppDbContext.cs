@@ -23,6 +23,7 @@ namespace Fiorello.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<SocialMedia> SocialMedias { get; set; }
 
 
 
@@ -34,7 +35,10 @@ namespace Fiorello.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Blog>().HasQueryFilter(b => !b.SoftDelete);
-
+            modelBuilder.Entity<Slider>().HasQueryFilter(s => !s.SoftDelete);
+            modelBuilder.Entity<SliderInfo>().HasQueryFilter(si => !si.SoftDelete);
+            modelBuilder.Entity<Expert>().HasQueryFilter(e => !e.SoftDelete);
+            modelBuilder.Entity<SocialMedia>().HasQueryFilter(sm => !sm.SoftDelete);
 
 
 
@@ -151,7 +155,13 @@ namespace Fiorello.Data
             modelBuilder.Entity<Setting>().HasData(
                 new Setting { Id = 1, Key = "Header Logo", Value = "logo.png"},
                 new Setting { Id = 2, Key = "Phone", Value = "994501248723" },
-                new Setting { Id = 3, Key = "Email", Value = "CodeAcademy@gmail.az"}
+                new Setting { Id = 3, Key = "Email", Value = "CodeAcademy@gmail.az"},
+                new Setting { Id = 4, Key = "Payment", Value = "footer-bottom-1.png" }
+            );
+
+            modelBuilder.Entity<SocialMedia>().HasData(
+                new SocialMedia { Id = 1, Name = "LINKEDIN" },
+                new SocialMedia { Id = 2, Name = "FACEBOOK" }
             );
         }
 
