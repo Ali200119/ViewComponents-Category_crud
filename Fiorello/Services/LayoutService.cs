@@ -9,15 +9,12 @@ namespace Fiorello.Services
 	public class LayoutService: ILayoutService
 	{
         private readonly AppDbContext _context;
-        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ICartService _cartService;
 
         public LayoutService(AppDbContext context,
-                             IHttpContextAccessor httpContextAccessor,
                              ICartService cartService)
         {
             _context = context;
-            _httpContextAccessor = httpContextAccessor;
             _cartService = cartService;
         }
 

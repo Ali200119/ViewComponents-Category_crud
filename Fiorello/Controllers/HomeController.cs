@@ -37,7 +37,6 @@ public class HomeController : Controller
         About about = await _context.Abouts.Where(a => !a.SoftDelete).Include(a => a.Advantages).FirstOrDefaultAsync();
         Expert expert = await _context.Experts.Where(e => !e.SoftDelete).Include(e => e.Persons).FirstOrDefaultAsync();
         Subscribe subscribe = await _context.Subscribes.Where(s => !s.SoftDelete).FirstOrDefaultAsync();
-        Blog blog = await _context.Blogs.Where(b => !b.SoftDelete).Include(b => b.BlogPosts).FirstOrDefaultAsync();
         IEnumerable<Quote> quotes = await _context.Quotes.Where(q => !q.SoftDelete).ToListAsync();
         IEnumerable<Instagram> instagrams = await _context.Instagrams.Where(i => !i.SoftDelete).ToListAsync();
         IEnumerable<Category> categories = await _context.Categories.Where(c => !c.SoftDelete).ToListAsync();
@@ -51,7 +50,6 @@ public class HomeController : Controller
             About = about,
             Expert = expert,
             Subscribe = subscribe,
-            Blog = blog,
             Quotes = quotes,
             Instagrams = instagrams,
             Categories = categories,

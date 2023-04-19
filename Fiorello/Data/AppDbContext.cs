@@ -33,6 +33,15 @@ namespace Fiorello.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Blog>().HasQueryFilter(b => !b.SoftDelete);
+
+
+
+
+
+
+
+
             modelBuilder.Entity<Slider>().HasData(
                 new Slider { Id = 1, Image = "h3-slider-background.jpg", SoftDelete = false },
                 new Slider { Id = 2, Image = "h3-slider-background-2.jpg", SoftDelete = false },

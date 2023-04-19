@@ -17,6 +17,11 @@
     <None Remove="Views\Cart\" />
     <None Remove="Services\" />
     <None Remove="Services\Interfaces\" />
+    <None Remove="ViewComponents\" />
+    <None Remove="Views\Shared\Components\" />
+    <None Remove="Views\Shared\Components\Blog\" />
+    <None Remove="Views\About\" />
+    <None Remove="Views\Shared\Components\Header\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -27,6 +32,11 @@
     <Folder Include="Views\Cart\" />
     <Folder Include="Services\" />
     <Folder Include="Services\Interfaces\" />
+    <Folder Include="ViewComponents\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\Blog\" />
+    <Folder Include="Views\About\" />
+    <Folder Include="Views\Shared\Components\Header\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
